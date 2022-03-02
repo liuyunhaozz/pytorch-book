@@ -10,7 +10,7 @@ from torchnet.meter import AverageValueMeter
 
 class Config(object):
     data_path = 'data/'  # 数据集存放路径
-    num_workers = 4  # 多进程加载数据所用的进程数
+    num_workers = 2  # 多进程加载数据所用的进程数
     image_size = 96  # 图片尺寸
     batch_size = 256
     max_epoch = 200
@@ -31,9 +31,9 @@ class Config(object):
     debug_file = '/tmp/debuggan'  # 存在该文件则进入debug模式
     d_every = 1  # 每1个batch训练一次判别器
     g_every = 5  # 每5个batch训练一次生成器
-    save_every = 10  # 没10个epoch保存一次模型
-    netd_path = None  # 'checkpoints/netd_.pth' #预训练模型
-    netg_path = None  # 'checkpoints/netg_211.pth'
+    save_every = 10  # 每10个epoch保存一次模型
+    netd_path = None # 'checkpoints/netd_.pth'  # 'checkpoints/netd_.pth' #预训练模型
+    netg_path = None # 'checkpoints/netg_211.pth'  # 'checkpoints/netg_211.pth'
 
     # 只测试不训练
     gen_img = 'result.png'
