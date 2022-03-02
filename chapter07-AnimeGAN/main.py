@@ -32,8 +32,8 @@ class Config(object):
     d_every = 1  # 每1个batch训练一次判别器
     g_every = 5  # 每5个batch训练一次生成器
     save_every = 10  # 每10个epoch保存一次模型
-    netd_path = None # 'checkpoints/netd_.pth'  # 'checkpoints/netd_.pth' #预训练模型
-    netg_path = None # 'checkpoints/netg_211.pth'  # 'checkpoints/netg_211.pth'
+    netd_path = 'checkpoints/netd_200.pth'  # 'checkpoints/netd_.pth' #预训练模型
+    netg_path = 'checkpoints/netg_200.pth'  # 'checkpoints/netg_211.pth'
 
     # 只测试不训练
     gen_img = 'result.png'
@@ -147,6 +147,8 @@ def train(**kwargs):
 
         if (epoch+1) % opt.save_every == 0:
             # 保存模型、图片
+            fix_fake_imgs = netg(fix_noises)
+
             tv.utils.save_image(fix_fake_imgs.data[:64], '%s/%s.png' % (opt.save_path, epoch), normalize=True,
                                 range=(-1, 1))
             t.save(netd.state_dict(), 'checkpoints/netd_%s.pth' % epoch)
