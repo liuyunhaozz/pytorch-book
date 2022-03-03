@@ -14,8 +14,8 @@ class Config(object):
     image_size = 96  # 图片尺寸
     batch_size = 256
     max_epoch = 200
-    lr1 = 2e-4  # 生成器的学习率
-    lr2 = 2e-4  # 判别器的学习率
+    lr1 = 1e-4  # 生成器的学习率
+    lr2 = 1e-4  # 判别器的学习率
     beta1 = 0.5  # Adam优化器的beta1参数
     gpu = True  # 是否使用GPU
     nz = 100  # 噪声维度

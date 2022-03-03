@@ -13,6 +13,7 @@ class NetG(nn.Module):
 
         self.main = nn.Sequential(
             # 输入是一个nz维度的噪声，我们可以认为它是一个1*1*nz的feature map
+            # 上卷积，又称转置卷积
             nn.ConvTranspose2d(opt.nz, ngf * 8, 4, 1, 0, bias=False),
             nn.BatchNorm2d(ngf * 8),
             nn.ReLU(True),
